@@ -1,7 +1,3 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
   <header>
     <div class="wrapper">
@@ -44,6 +40,17 @@ nav a {
 
 nav a:first-of-type {
   border: 0;
+}
+
+@media (max-width: 1250px) {
+  nav {
+    font-size: 20px;
+  }
+
+  nav a {
+    border: 0;
+    width: 100%;
+  }
 }
 
 </style>

@@ -114,7 +114,7 @@ function transliterate(text: string) {
       >
         <h2>{{ item.title }}</h2>
         <p>{{ item.address }}</p>
-        <p style="font-size: 20px;">({{ item.category }})</p>
+        <p>({{ item.category }})</p>
       </div>
     </div>
   </main>
@@ -150,8 +150,6 @@ function transliterate(text: string) {
   }
 
   #results {
-    /* display: grid;
-    grid-template-columns: repeat(3, 1fr); */
     width: 90%;
     display: flex;
     flex-direction: row;
@@ -162,7 +160,6 @@ function transliterate(text: string) {
     font-size: 2em;
     width: 300px;
     margin: 5px;
-    /* flex: 1 1 300px; */
   }
 
   .square {
@@ -178,5 +175,49 @@ function transliterate(text: string) {
 
   .active-square {
     border-color: #007bff;
+  }
+
+  @media (max-width: 1250px) {
+    #search {
+      display: initial;
+    }
+
+    #search > input {
+      width: 100%;
+      font-size: 12px;
+      margin: 0;
+    }
+
+    #filters {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .square {
+      font-size: 10px;
+      display: flex;
+      width: 20px;
+      height: 20px;
+      margin: 5px;
+    }
+
+    .card {
+      font-size: 12px;
+      width: 100%;
+      margin: 5px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .card > h2 {
+      font-size: 24px;
+      flex-grow: 1;
+    }
+
+    .card > p {
+      flex-grow: 1;
+    }
   }
 </style>
