@@ -1,16 +1,18 @@
 <script setup lang="ts">
-import { computed, reactive } from 'vue';
+import { computed, reactive } from 'vue'
 
 
 interface Item {
-  category: string;
-  title: string;
-  address: string;
+  category: string
+  title: string
+  address: string
 }
 
 var data: Item[] = []
 
-fetch('https://cdn.sttwins.com/static/book/data_ua_new.json')
+const url = document.location.href.includes('russian') ? 'https://cdn.sttwins.com/static/book/data_ru.json' : 'https://cdn.sttwins.com/static/book/data_ua_new.json'
+
+fetch(url)
   .then(res => res.json())
   .then(out => {
     data = Object.keys(out)
