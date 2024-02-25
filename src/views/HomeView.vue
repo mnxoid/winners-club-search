@@ -1,16 +1,20 @@
 <script setup lang="ts">
-import { computed, reactive } from 'vue';
+import { computed, reactive } from 'vue'
 
 
 interface Item {
-  category: string;
-  title: string;
-  address: string;
+  category: string
+  title: string
+  address: string
 }
 
 var data: Item[] = []
 
-fetch('https://cdn.sttwins.com/static/book/data_ua_new.json')
+const is_rus = document.location.href.includes('russian')
+
+const url = is_rus ? 'https://cdn.sttwins.com/static/book/data_ru.json' : 'https://cdn.sttwins.com/static/book/data_ua_new.json'
+
+fetch(url)
   .then(res => res.json())
   .then(out => {
     data = Object.keys(out)
@@ -25,7 +29,7 @@ fetch('https://cdn.sttwins.com/static/book/data_ua_new.json')
   })
   .catch(err => { throw err });
 
-const directions: string[] = ['РІ', 'ДХ', 'ПЛ', 'МІ', 'КО', 'ДА', 'СГ', 'ПФ', 'АП', 'ОМ', 'ПР']
+const directions: string[] = is_rus ? ['СЗ', 'С', 'СВ', 'З', 'Ц', 'В', 'ЮЗ', 'Ю', 'ЮВ', 'П'] : ['РІ', 'ДХ', 'ПЛ', 'МІ', 'КО', 'ДА', 'СГ', 'ПФ', 'АП', 'ОМ', 'ПР']
 const active_directions: string[] = reactive([])
 
 function toggleDirection(direction: string) {
