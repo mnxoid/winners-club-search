@@ -1,0 +1,1 @@
+import{_ as o,o as t,c as e,a as s}from"./index-CvQ3NyHn.js";const c={},n={class:"about"},_=s("h1",null,"This tool is brought to you by mnxoid",-1),a=[_];function r(i,d){return t(),e("div",n,a)}const u=o(c,[["render",r]]);export{u as default};
