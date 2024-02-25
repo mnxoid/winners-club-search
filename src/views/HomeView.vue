@@ -10,7 +10,9 @@ interface Item {
 
 var data: Item[] = []
 
-const url = document.location.href.includes('russian') ? 'https://cdn.sttwins.com/static/book/data_ru.json' : 'https://cdn.sttwins.com/static/book/data_ua_new.json'
+const is_rus = document.location.href.includes('russian')
+
+const url = is_rus ? 'https://cdn.sttwins.com/static/book/data_ru.json' : 'https://cdn.sttwins.com/static/book/data_ua_new.json'
 
 fetch(url)
   .then(res => res.json())
@@ -27,7 +29,7 @@ fetch(url)
   })
   .catch(err => { throw err });
 
-const directions: string[] = ['РІ', 'ДХ', 'ПЛ', 'МІ', 'КО', 'ДА', 'СГ', 'ПФ', 'АП', 'ОМ', 'ПР']
+const directions: string[] = is_rus ? ['СЗ', 'С', 'СВ', 'З', 'Ц', 'В', 'ЮЗ', 'Ю', 'ЮВ', 'П'] : ['РІ', 'ДХ', 'ПЛ', 'МІ', 'КО', 'ДА', 'СГ', 'ПФ', 'АП', 'ОМ', 'ПР']
 const active_directions: string[] = reactive([])
 
 function toggleDirection(direction: string) {
